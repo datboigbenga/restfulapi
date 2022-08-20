@@ -113,7 +113,7 @@ class get_upd_del_Temp(Resource):
             return make_response(jsonify({'message':'template not retrieved, does not exist'}), 401)
 
     @token_required
-    def patch(self, current_user, template_id):
+    def put(self, current_user, template_id):
         try:
             updater = request.get_json()
             dbResponse = templates.objects(id=template_id).update(**updater)
